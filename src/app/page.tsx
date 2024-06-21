@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { fetchPartidos } from "../lib/data";
 import { lusitana } from "./ui/fonts";
-import PartidosList from "./partidos/page";
 
 export default async function Home() {
   const partidos = await fetchPartidos();
@@ -22,7 +21,6 @@ export default async function Home() {
     </div>
     <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
       {/* <RevenueChart revenue={revenue}  /> */}
-      {<PartidosList partidosList={partidos} />}
     </div>
   </main>   
   );
