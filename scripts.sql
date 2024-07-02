@@ -1,9 +1,24 @@
-select count(*) from pronosticos;
+select id from pronosticos order by id desc;
 
-INSERT INTO pronosticos (id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (315, 16, 7, 2, 1, '2024-06-23 00:00:00');
-INSERT INTO pronosticos (id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (316, 16, 8, 1, 2, '2024-06-23 00:00:00');
-INSERT INTO pronosticos (id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (317, 16, 13, 2, 0, '2024-06-23 00:00:00');
-INSERT INTO pronosticos (id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (318, 16, 14, 1, 0, '2024-06-23 00:00:00');
+INSERT INTO pronosticos (id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (357, 13, 21, 1, 2, '2024-06-25 00:00:00');
+INSERT INTO pronosticos (id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (358, 13, 22, 1, 0, '2024-06-25 00:00:00');
+
+INSERT INTO pronosticos (id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (359, 13, 5, 2, 0, '2024-06-25 00:00:00');
+INSERT INTO pronosticos (id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (360, 13, 6, 1, 1, '2024-06-25 00:00:00');
+INSERT INTO pronosticos (id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (361, 13, 11, 2, 2, '2024-06-25 00:00:00');
+INSERT INTO pronosticos (id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (362, 13, 12, 1, 2, '2024-06-25 00:00:00');
+
+INSERT INTO pronosticos (usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (11, 11, 2, 1, '2024-06-25 00:00:00');
+INSERT INTO pronosticos (usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (12, 11, 2, 1, '2024-06-25 00:00:00');
+INSERT INTO pronosticos (usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (11, 12, 0, 2, '2024-06-25 00:00:00');
+INSERT INTO pronosticos (usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (12, 12, 0, 1, '2024-06-25 00:00:00');
+
+-- Pendiente
+
+INSERT INTO pronosticos (usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (11, 17, 1, 3, '2024-06-25 00:00:00');
+INSERT INTO pronosticos (usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico) VALUES (11, 18, 0, 1, '2024-06-25 00:00:00');
+
+
 
 
 select * from pronosticos where id = 303;
@@ -18,7 +33,7 @@ SELECT u.name, pu.puntos_totales, pu.pronosticos_acertados FROM public.puntos_us
 	JOIN users u ON pu.usuario_id = u.id
 ORDER BY puntos_totales DESC;
 
-select * from pronosticos where usuario_id = 6;
+select * from pronosticos where usuario_id = 8;
 
 
 -- Consultar partidos
@@ -55,6 +70,7 @@ JOIN
 JOIN 
     equipos e2 ON pa.equipo_visitante_id = e2.id
 WHERE 
-    p.partido_id = 20;
+    p.partido_id = 12;
+
 
    

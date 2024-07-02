@@ -4,7 +4,7 @@ function NewPage(){
       
 
     return(
-        <div>
+        <div className="flex justify-center items-center h-full">
             <PronosticoForm />
         </div>
     );

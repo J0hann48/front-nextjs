@@ -6,7 +6,6 @@ export async function GET() {
     try {
         const client = await db.connect();
         const result = await client.sql`SELECT * from pronosticos`
-        console.log(result['rows'])
         await client.end();
         return NextResponse.json({ message: result['rows']})
     } catch (error) {
@@ -24,10 +23,11 @@ export async function GET() {
 
 export async function POST(request) {
     try {
-        const { id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico } = await request.json();
+        const dateNow = new Date();
+        const {usuario_id, partido_id, goles_local, goles_visitante } = await request.json();
         const client = await db.connect();
-        const result = await client.sql`INSERT INTO pronosticos (id, usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico)
-        VALUES (${id}, ${usuario_id}, ${partido_id}, ${goles_local}, ${goles_visitante}, ${fecha_pronostico});`
+        const result = await client.sql`INSERT INTO pronosticos (usuario_id, partido_id, goles_local, goles_visitante, fecha_pronostico)
+        VALUES (${usuario_id}, ${partido_id}, ${goles_local}, ${goles_visitante}, ${dateNow});`
         await client.end();
         return NextResponse.json('Pronosticos creado')
     } catch (error) {

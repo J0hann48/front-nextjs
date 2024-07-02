@@ -17,7 +17,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={inter.className}>
-        <div>
+        <h1>Navbar</h1>
+        <div className="h-[calc(100vh-5rem)]:">
         {children}
         </div>        
         </body>
