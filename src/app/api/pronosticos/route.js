@@ -5,7 +5,23 @@ const { db } = require('@vercel/postgres');
 export async function GET() {
     try {
         const client = await db.connect();
-        const result = await client.sql`SELECT * from pronosticos`
+        const result = await client.sql`SELECT 
+    p.id,
+    u.name AS usuario,
+	e1.nombre AS equipo_local,
+    p.goles_local,
+	e2.nombre AS equipo_visitante,
+    p.goles_visitante
+FROM 
+    pronosticos p
+JOIN 
+    users u ON p.usuario_id = u.id
+JOIN 
+    partidos pa ON p.partido_id = pa.id
+JOIN 
+    equipos e1 ON pa.equipo_local_id = e1.id
+JOIN 
+    equipos e2 ON pa.equipo_visitante_id = e2.id`
         await client.end();
         return NextResponse.json({ message: result['rows']})
     } catch (error) {
