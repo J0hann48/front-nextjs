@@ -11,7 +11,8 @@ export async function GET() {
 	e1.nombre AS equipo_local,
     p.goles_local,
 	e2.nombre AS equipo_visitante,
-    p.goles_visitante
+    p.goles_visitante,
+    pa.fase
 FROM 
     pronosticos p
 JOIN 
